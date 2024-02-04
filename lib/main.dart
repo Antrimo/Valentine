@@ -51,6 +51,27 @@ class _VideoAppState extends State<VideoApp> {
                 ),
               ),
             ),
+            Align(
+              heightFactor: 12,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {});
+                    },
+                    child: const Text("Yes"),
+                  ),
+                  const SizedBox(width: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {});
+                    },
+                    child: const Text("No"),
+                  ),
+                ],
+              ),
+            ),
           ],
         )),
       ),
