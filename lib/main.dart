@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:valentine/values.dart';
 import 'package:valentine/yes.dart';
@@ -27,7 +26,8 @@ class _VideoAppState extends State<VideoApp> {
   }
 
   late VideoPlayerController _controller;
-  bool showMessage = false;
+
+  bool noButtonVisible = true;
 
   @override
   void initState() {
@@ -72,17 +72,32 @@ class _VideoAppState extends State<VideoApp> {
             ),
             Align(
               heightFactor: 14,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Yes()),
-                  );
-                },
-                child: const Text('Yes'),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Yes()),
+                      );
+                    },
+                    child: const Text('Yes'),
+                  ),
+                  const SizedBox(width: 20),
+                  if (noButtonVisible)
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          noButtonVisible = false;
+                        });
+                      },
+                      child: const Text('No'),
+                    ),
+                ],
               ),
             ),
-            if (showMessage) // Show the message only if "No" is clicked
+            if (!noButtonVisible)
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Center(
@@ -96,19 +111,17 @@ class _VideoAppState extends State<VideoApp> {
                   ),
                 ),
               ),
-            Positioned(
-              left: _getRandomPosition(screenWidth - 100),
-              top: _getRandomPosition(screenHeight - 100),
-              child: ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    showMessage =
-                        true; // Update the variable when "No" is clicked
-                  });
-                },
-                child: const Text('No'),
+            if (!noButtonVisible)
+              Positioned(
+                left: _getRandomPosition(screenWidth - 100),
+                top: _getRandomPosition(screenHeight - 100),
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {});
+                  },
+                  child: const Text('NO'),
+                ),
               ),
-            ),
           ],
         ),
       ),
