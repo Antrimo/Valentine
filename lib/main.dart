@@ -29,6 +29,7 @@ class _VideoAppState extends State<VideoApp> {
     _controller = VideoPlayerController.asset('assets/valentine.mp4');
     await _controller.initialize();
     _controller.setLooping(true);
+    _controller.setVolume(0.0);
     _controller.play();
     setState(() {});
   }
@@ -47,7 +48,7 @@ class _VideoAppState extends State<VideoApp> {
             widthFactor: 3,
             heightFactor: 10,
             child: Text(
-              'Will you be my valentine?',
+              'Will u be my valentine?',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
@@ -57,14 +58,26 @@ class _VideoAppState extends State<VideoApp> {
           ),
           Align(
             heightFactor: 12,
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Yes()),
-                );
-              },
-              child: const Text('Yes'),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Yes()),
+                    );
+                  },
+                  child: const Text('Yes'),
+                ),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('No'),
+                ),
+              ],
             ),
           ),
         ],

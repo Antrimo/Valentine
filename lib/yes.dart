@@ -32,7 +32,6 @@ class _YesState extends State<Yes> {
     await _controller.initialize();
     _controller.setLooping(true);
 
-    // Ensure the state is updated after controller is initialized.
     if (mounted) {
       setState(() {});
     }
@@ -44,14 +43,28 @@ class _YesState extends State<Yes> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Center(
-          child: _controller.value.isInitialized
-              ? AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
-                )
-              : const CircularProgressIndicator(), // Show a loading indicator while initializing.
-        ),
+        backgroundColor: Colors.black,
+        body: Stack(children: [
+          Center(
+            child: _controller.value.isInitialized
+                ? AspectRatio(
+                    aspectRatio: _controller.value.aspectRatio,
+                    child: VideoPlayer(_controller),
+                  )
+                : const CircularProgressIndicator(), // Show a loading indicator while initializing.
+          ),
+          const Align(
+            heightFactor: 12,
+            child: Text(
+              'Will meet you soon!',
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontStyle: FontStyle.italic),
+            ),
+          ),
+        ]),
       ),
     );
   }
