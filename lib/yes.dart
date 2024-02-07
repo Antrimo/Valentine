@@ -51,7 +51,7 @@ class _YesState extends State<Yes> {
                     aspectRatio: _controller.value.aspectRatio,
                     child: VideoPlayer(_controller),
                   )
-                : const CircularProgressIndicator(), // Show a loading indicator while initializing.
+                : const CircularProgressIndicator(),
           ),
           const Align(
             heightFactor: 12,

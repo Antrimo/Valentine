@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:valentine/no.dart';
 import 'package:valentine/yes.dart';
 import 'package:video_player/video_player.dart';
 
@@ -73,7 +74,10 @@ class _VideoAppState extends State<VideoApp> {
                 const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const No()),
+                    );
                   },
                   child: const Text('No'),
                 ),
