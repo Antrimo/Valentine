@@ -49,6 +49,8 @@ class _VideoAppState extends State<VideoApp> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
+    // Add your desired emojis
+
     return SafeArea(
       child: Scaffold(
         body: Stack(
@@ -71,7 +73,7 @@ class _VideoAppState extends State<VideoApp> {
               ),
             ),
             Align(
-              heightFactor: 14,
+              heightFactor: 12,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -99,16 +101,27 @@ class _VideoAppState extends State<VideoApp> {
             ),
             if (!noButtonVisible)
               Align(
-                alignment: Alignment.bottomCenter,
-                child: Center(
-                  child: Text(
-                    messages[_random.nextInt(messages.length)],
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 30.0,
-                      fontStyle: FontStyle.italic,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      emojis[_random.nextInt(emojis.length)],
+                      style: const TextStyle(
+                        fontSize: 30.0,
+                      ),
                     ),
-                  ),
+                    const SizedBox(height: 10),
+                    Center(
+                      child: Text(
+                        messages[_random.nextInt(messages.length)],
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 30.0,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             if (!noButtonVisible)
