@@ -38,6 +38,7 @@ dependencies:
   video_player: ^2.8.2
   chewie: ^1.7.4
   firebase_core: ^2.25.4
+  card_swiper: ^3.0.1
 
 dev_dependencies:
   flutter_test:

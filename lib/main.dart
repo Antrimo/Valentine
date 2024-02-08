@@ -1,15 +1,12 @@
 import 'dart:math';
-import 'package:valentine/firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:valentine/firebase_options.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:valentine/values.dart';
 import 'package:valentine/yes.dart';
 import 'package:video_player/video_player.dart';
 
-void main() async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+void main() {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: VideoApp(),
@@ -53,8 +50,6 @@ class _VideoAppState extends State<VideoApp> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-
-    // Add your desired emojis
 
     return SafeArea(
       child: Scaffold(
