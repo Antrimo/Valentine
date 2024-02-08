@@ -1,10 +1,15 @@
 import 'dart:math';
+import 'package:valentine/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:valentine/values.dart';
 import 'package:valentine/yes.dart';
 import 'package:video_player/video_player.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: VideoApp(),
