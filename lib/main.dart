@@ -77,24 +77,26 @@ class _VideoAppState extends State<VideoApp> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
+                  ElevatedButton.icon(
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const Yes()),
                       );
                     },
-                    child: const Text('Yes'),
+                    icon: const Icon(Icons.favorite),
+                    label: const Text('Yes'),
                   ),
                   const SizedBox(width: 20),
                   if (noButtonVisible)
-                    ElevatedButton(
+                    ElevatedButton.icon(
                       onPressed: () {
                         setState(() {
                           noButtonVisible = false;
                         });
                       },
-                      child: const Text('No'),
+                      icon: const Icon(Icons.clear),
+                      label: const Text('No'),
                     ),
                 ],
               ),
