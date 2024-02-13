@@ -25,7 +25,7 @@ class _YesState extends State<Yes> {
 
   Future<void> _initializeController() async {
     _controller = VideoPlayerController.asset(
-      'assets/yes_1.mp4',
+      'assets/yes_3.mp4',
       videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
     );
 
@@ -54,7 +54,7 @@ class _YesState extends State<Yes> {
                 : const CircularProgressIndicator(),
           ),
           const Align(
-            heightFactor: 12,
+            heightFactor: 11,
             child: Text(
               'Will meet you soon!',
               style: TextStyle(
