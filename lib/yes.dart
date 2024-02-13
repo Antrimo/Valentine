@@ -25,7 +25,7 @@ class _YesState extends State<Yes> {
 
   Future<void> _initializeController() async {
     _controller = VideoPlayerController.asset(
-      'assets/yes.mp4',
+      'assets/yes_1.mp4',
       videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
     );
 

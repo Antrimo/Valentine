@@ -1,6 +1,5 @@
 import 'dart:math';
-//import 'package:valentine/firebase_options.dart';
-//import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
 import 'package:valentine/values.dart';
 import 'package:valentine/yes.dart';
@@ -64,9 +63,10 @@ class _VideoAppState extends State<VideoApp> {
               widthFactor: 3,
               heightFactor: 10,
               child: Text(
-                'Will you be my valentine?',
+                'Will you be my Valentine?',
                 style: TextStyle(
-                  fontSize: 30,
+                  fontFamily: "Cursive",
+                  fontSize: 32,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
@@ -95,7 +95,7 @@ class _VideoAppState extends State<VideoApp> {
                           noButtonVisible = false;
                         });
                       },
-                      icon: const Icon(Icons.clear),
+                      icon: const Icon(Icons.heart_broken),
                       label: const Text('No'),
                     ),
                 ],
@@ -130,11 +130,12 @@ class _VideoAppState extends State<VideoApp> {
               Positioned(
                 left: _getRandomPosition(screenWidth - 100),
                 top: _getRandomPosition(screenHeight - 100),
-                child: ElevatedButton(
+                child: ElevatedButton.icon(
                   onPressed: () {
                     setState(() {});
                   },
-                  child: const Text('NO'),
+                  icon: const Icon(Icons.heart_broken),
+                  label: const Text('NO'),
                 ),
               ),
           ],
